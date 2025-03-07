@@ -1,8 +1,14 @@
-// staircase.js
-function staircase(n) {
+function steps(n) {
     for (let i = 1; i <= n; i++) {
-      console.log(" ".repeat(n - i) + "#".repeat(i));
+        console.log("#".repeat(i));
     }
-  }
-  staircase(3);
-  
+}
+
+// Example usage:
+steps(3);
+/*
+Output:
+#
+##
+###
+*/

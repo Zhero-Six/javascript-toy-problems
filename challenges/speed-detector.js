@@ -1,9 +1,20 @@
-// speed-detector.js
 function speedDetector(speed) {
     const speedLimit = 70;
-    if (speed <= speedLimit) return "Ok";
-    let points = Math.floor((speed - speedLimit) / 5);
-    return points > 12 ? "License suspended" : `Points: ${points}`;
-  }
-  console.log(speedDetector(80)); // Output: Points: 2
-  
+    const kmPerDemeritPoint = 5;
+    const maxDemeritPoints = 12;
+
+    if (speed < speedLimit) {
+        console.log("Ok");
+    } else {
+        let demeritPoints = Math.floor((speed - speedLimit) / kmPerDemeritPoint);
+        if (demeritPoints > maxDemeritPoints) {
+            console.log("License suspended");
+        } else {
+            console.log(`Points: ${demeritPoints}`);
+        }
+    }
+}
+
+// Example usage:
+const speed = prompt("Enter the car's speed:");
+speedDetector(Number(speed));
